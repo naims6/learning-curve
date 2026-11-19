@@ -1,10 +1,10 @@
+import os
 from pathlib import Path
 
-import numpy as np
-import os
-from sentence_transformers import SentenceTransformer
+import numpy as np  # pyright: ignore[reportMissingImports]
 from dotenv import load_dotenv
 from google import genai
+from sentence_transformers import SentenceTransformer
 
 filePath = Path("data/knowledge.txt")
 document = filePath.read_text(encoding="utf8")
@@ -58,14 +58,14 @@ client = genai.Client(api_key=apiKey)
 
 # prompt for ai
 
-prompt = f""" 
+prompt = f"""
 You are a helpful assistant.
 
 Answer the question using only the provided context.
 If the context does not contain the answer, say:
 "I don't know based on the provided documents."
 
-Context: 
+Context:
 {context}
 
 Question:
